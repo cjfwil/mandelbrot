@@ -1,25 +1,6 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-char is_convergent_julia(float x, float y)
-{
-    float xp = x;
-    float yp = y;
-    int max_iterations = 1;
-    
-    for (int i = 0; i < max_iterations; ++i) {
-        float newXp = (xp*xp - yp*yp) + x;        
-        yp = (2*xp*yp) + y;
-        xp = newXp;
-
-        if (xp*xp + yp*yp > 4) {
-            char grey = (i/(float)max_iterations) * 0xff;
-            return(grey);
-        }
-    }
-    return (0);
-}
-
 char is_convergent(float x, float y)
 {
     float xp = 0;
